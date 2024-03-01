@@ -1,0 +1,80 @@
+{% extends "jobs/index.html" %}
+{% block content %}
+<!-- Content goes here 
+
+-->
+    
+    <div class="flex flex-row justify-center flex-grow w-screen h-screen pt-4 mt-5 mb-12">
+  
+        <!-- ad -->
+        <div class="flex-shrink-0 hidden w-1/6 h-screen p-4 mt-4 border-r-2 ">
+            Left menu
+        </div>
+        <div class="w-5/6 h-screen ">
+          
+            <div class="flex flex-row justify-center flex-grow pt-4 m-0 ">
+              <div class="items-center w-2/5">
+                <div class="">    <!-- Links Section -->
+                  <div class="items-center hidden space-x-8 lg:flex">
+                      <div class="flex text-gray-600 transition-colors duration-300 cursor-pointer  hover:shadow-lg hover:shadow-yellow-500 hover:border-yellow-500 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                          <form class="flex space-x-4">
+                              <!-- Form items go here -->
+                              <div class="relative flex p-2 bg-white border-2 shadow rounded-xl">
+                                  <span class="flex items-center justify-end w-auto p-2 text-gray-500">
+                                      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                      </svg>
+                                  </span>
+                                  <input type="text" id="job_title" name="job_title" class="w-full p-2 text-sm border-0" placeholder="Search Jobs"/>
+                              
+                              
+                                  <div class="flex items-center w-auto mr-2 text-sm text-gray-500 justify-items-center">
+                                      <label class="p-1 mt-2" for="job_country">Location: </label>
+                                      <input type="text" id="job_country" name="job_country" class="w-full p-0 text-sm border-0" placeholder="Where?"/>
+                                  </div>
+                              
+                                  <div class="flex-1">
+                                      <!-- Add more form fields as needed -->
+                                  </div>
+                              
+                                  <div class="flex-1">
+                                      <button type="submit" class="flex p-2 text-xl text-green-500 bg-black hover:bg-gray-700 rounded-xl">
+                                          <p class="text-sm font-semibold">Search</p>
+                                          </button>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                      
+                  </div>
+                </div>
+                <!-- posts -->
+                  <div class="items-center w-full max-h-screen mb-5 mr-5 overflow-y-auto md:flex md:flex-col md-flex-1">
+                    {% for job in jobs %}
+                      <div class="items-center justify-center w-full max-h-screen">
+                          <!-- posts -->
+                          <div class="max-w-md p-2 mx-2 mb-4 shadow-md md:p-4 md:mx-6 hover:border-4 hover:border-amber-400">
+                              <h2 class="text-xl font-semibold md:text-2xl"><a class="text-green-500 hover:text-black" href="{% url 'jobs:details' pk=job.id%}">{{job.job_title}}</a></h2>
+                              <p class="text-sm leading-tight text-justify text-gray-800 truncate md:text-base">{{job.job_description}}</p>
+                              <div class="flex justify-between mt-2">
+                              <span>Posted On: {{job.job_posted_at_datetime_utc}}</span>
+                              <span class="text-black">Date: <a class="text-green-500 hover:text-black" href="#">{{job.apply_options}}</a></span>
+                              </div>
+                          </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+              </div>  
+              <div class="w-3/5 ml-5">
+                <!-- post view -->
+                <div class="right-0 flex-shrink-0 max-h-screen overflow-y-auto">
+                  {% include "jobs/partials/info.html" %}
+                </div>
+              </div>
+            </div>
+          </div>
+          
+    </div>
+             
+    
+{% endblock content %}  

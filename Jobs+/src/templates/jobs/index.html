@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+{% load static tailwind_tags %}
+
+<html>
+<head>
+	<title>Jobs+</title>
+    {% tailwind_css %}
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-47692315-56');
+	</script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="{% static '' %}">
+	<link id="theme-style" rel="stylesheet" type="text/css" href="">
+</head>
+
+  <body class="h-screen">
+
+    <!-- some things work some of the time dark:bg-black-->
+    <div class="flex flex-col h-5/6">
+      
+        <div class="">
+          <!-- Include the top bar and content wrapper -->
+          {% include "jobs/partials/navbar.html" %}
+          
+          <div class="flex flex-col min-h-screen text-2xl font-bold ">
+            <!-- Content -->
+            {% block content %}
+            {% endblock content %}
+          </div>
+        </div>
+      
+      
+
+      <div class="mt-32">
+        {% include "jobs/partials/footer.html" %}
+      </div>
+    </div>
+    
+    
+  </body>
+
+</html>
