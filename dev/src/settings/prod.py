@@ -5,7 +5,7 @@ config = Config(RepositoryEnv(join(BASE_DIR, '.env')))
 
 ENVIRONMENT = config('ENVIRONMENT', default='production')
 
-DEBUG = False
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [ 'jobsplus.onrender.com']
 
