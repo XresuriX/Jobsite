@@ -4,7 +4,7 @@ from decouple import config, Config, RepositoryEnv
 config = Config(RepositoryEnv(join(BASE_DIR, '.env')))
 
 ENVIRONMENT = config('ENVIRONMENT', default='production')
-DEBUG = False
+
 
 ALLOWED_HOSTS = [ 'jobsplus.onrender.com']
 
