@@ -6,9 +6,9 @@ config = Config(RepositoryEnv(join(BASE_DIR, '.env')))
 ENVIRONMENT = config('ENVIRONMENT', default='production')
 DEBUG = False
 
-ALLOWED_HOSTS = [ '*']
+ALLOWED_HOSTS = [ 'www.jobsplus.onrender.com']
 
-#CSRF_TRUSTED_ORIGINS = [ 'https://jobsplus.onrender.com' ]
+CSRF_TRUSTED_ORIGINS = [ 'https://jobsplus.onrender.com' ]
 
 DATABASES = {
     "default": {
@@ -22,6 +22,8 @@ DATABASES = {
             'NAME': 'testdb',},
     }  
 }
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 POSTGRES_LOCALLY = False
 if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
