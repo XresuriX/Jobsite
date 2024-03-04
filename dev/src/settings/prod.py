@@ -6,9 +6,9 @@ config = Config(RepositoryEnv(join(BASE_DIR, '.env')))
 ENVIRONMENT = config('ENVIRONMENT', default='production')
 DEBUG = False
 
-ALLOWED_HOSTS = [ 'jobsplus.onrender.com']
+ALLOWED_HOSTS = [ '*']
 
-CSRF_TRUSTED_ORIGINS = [ 'https://jobsplus.onrender.com' ]
+#CSRF_TRUSTED_ORIGINS = [ 'https://jobsplus.onrender.com' ]
 
 DATABASES = {
     "default": {
