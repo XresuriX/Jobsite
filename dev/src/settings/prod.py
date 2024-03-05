@@ -24,7 +24,7 @@ DATABASES = {
     }  
 }
 
-
+ROOT_URLCONF = "src.urls"
 
 POSTGRES_LOCALLY = False
 if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
