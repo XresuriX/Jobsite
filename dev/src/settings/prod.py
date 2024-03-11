@@ -1,7 +1,7 @@
 from .base import *
 import os
 from decouple import config, Config, RepositoryEnv
-config = Config(RepositoryEnv(join(BASE_DIR, '.env')))
+
 
 ENVIRONMENT = config('ENVIRONMENT', default='production')
 
@@ -41,7 +41,7 @@ if not DEBUG:
 
 POSTGRES_LOCALLY = False
 if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
-    DATABASES['default'] = dj_database_url.parse(config('DATABASE_URL'))
+    DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
 SECURE_HSTS_SECONDS = 3153600  # 1 year
 SECURE_SSL_REDIRECT = True
