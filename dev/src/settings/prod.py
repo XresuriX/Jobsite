@@ -10,7 +10,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = [ 'jobsplus.onrender.com']
+ALLOWED_HOSTS = [ '.vercel.app']
 
 CSRF_TRUSTED_ORIGINS = [ 'https://jobsplus.onrender.com' ]
 
